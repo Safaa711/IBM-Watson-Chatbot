@@ -1,0 +1,95 @@
+
+body{
+	background:#678b86;
+	font-family: sans-serif;
+	margin:10px;
+	position: relative;
+	text-align:center;
+	color:wight;
+	text-shadow: 0 0 10px #d5ece9, 0 0 10px #d5ece9;
+	font-size:20px;
+}
+.box{
+	background-color: #1f2b29;
+	width: 50%;
+	height: 75%;
+	border-radius:50%;
+    position: absolute;
+	top:50%;
+	left:50%;
+    transform:translate(-50%,-50%);
+	padding:5px;
+}
+.STOP{
+	text-shadow: 0 0 10px #fc032d, 0 0 10px #fc2003;
+	animation-delay:1s;
+	animation:animate 3s alternate-reverse infinite;
+    color:#fff;	
+}
+#btn1{
+	width:90;
+	height:30px;
+	border-radius:30%;
+	cursor:pointer;
+	margin:20px;
+	box-shadow:0 0 20px #15abb3, inset 0 0 15px #7a7822;
+	animation-delay:3s;
+	margin:20px;
+	cursor:pointer;
+	animation:animate 3s alternate infinite;	
+}
+#btn2{
+	width:90;
+	height:30px;
+	border-radius:30%;
+	cursor:pointer;
+	margin:20px;
+	box-shadow:0 0 20px #15abb3, inset 0 0 15px #7a7822;
+	animation-delay:3s;
+	margin:20px;
+	cursor:pointer;
+	animation:animate 3s alternate infinite;	
+}
+#btn3{
+	height:130px;
+	width:130px;
+	border:3px solid;
+	border-radius:50%;
+	box-shadow:0 0 20px #15abb3, inset 0 0 15px #7a7822;
+	animation-delay:3s;
+	margin:20px;
+	cursor:pointer;
+	animation:animate 3s alternate infinite;	
+}
+#btn4{
+	width:90;
+	height:30px;
+	border-radius:30%;
+	cursor:pointer;
+	margin:20px;
+	box-shadow:0 0 20px #15abb3, inset 0 0 15px #7a7822;
+	animation-delay:3s;
+	margin:20px;
+	cursor:pointer;
+	animation:animate 3s alternate infinite;	
+}
+#btn5{
+	width:90;
+	height:30px;
+	border-radius:30%;
+	cursor:pointer;
+	margin:20px;
+	box-shadow:0 0 20px #15abb3, inset 0 0 15px #7a7822;
+	animation-delay:3s;
+	margin:20px;
+	cursor:pointer;
+	animation:animate 3s alternate infinite;	
+}
+@keyframes animate{
+	0%,2%,4%,32%,75%,77%,100%{
+		opacity:0.9;
+	}
+
+	3%,5%,31%,76%{
+		opacitt:0,5;
+	}

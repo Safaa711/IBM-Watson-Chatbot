@@ -1,0 +1,416 @@
+{
+  "intents": [
+    {
+      "intent": "ترحيب",
+      "examples": [
+        {
+          "text": "أهلا"
+        },
+        {
+          "text": "السلام عليكم"
+        },
+        {
+          "text": "السلام عليكم و رحمة الله وبركاته"
+        },
+        {
+          "text": "صباح الخير"
+        },
+        {
+          "text": "صفاء"
+        },
+        {
+          "text": "كيف الحال"
+        },
+        {
+          "text": "مرحبا"
+        },
+        {
+          "text": "مرحبا صفاء"
+        },
+        {
+          "text": "مساء الخير"
+        },
+        {
+          "text": "هاي"
+        },
+        {
+          "text": "هلا"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "جودةالخدمة",
+      "examples": [
+        {
+          "text": "الخدمة رائعة"
+        },
+        {
+          "text": "الخدمة ممتازة"
+        },
+        {
+          "text": "شكرا لكم"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "سوءالخدمة",
+      "examples": [
+        {
+          "text": "اخر مرة اتعامل معاكم"
+        },
+        {
+          "text": "الخدمة سيئة"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "شكاوي-العملاء",
+      "examples": [
+        {
+          "text": "ابغى فلوسي"
+        },
+        {
+          "text": "اريد استرجاع المبلغ"
+        },
+        {
+          "text": "كيف اقدر استرجع المبلغ؟"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sys-currency",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-date",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-number",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-percentage",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-time",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "الخدمة",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "جيدة",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "سيئة",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "متوسطة",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    },
+    "from-sample": true
+  },
+  "dialog_nodes": [
+    {
+      "type": "event_handler",
+      "parent": "slot_2_1629952023948",
+      "event_name": "input",
+      "dialog_node": "handler_1_1629952023973"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_4_1629952038262",
+      "event_name": "input",
+      "dialog_node": "handler_3_1629952038273"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "كم رقم المنتج؟"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_4_1629952339233",
+      "event_name": "focus",
+      "dialog_node": "handler_3_1629952339235",
+      "previous_sibling": "handler_5_1629952339235"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_5_1629952031778",
+      "context": {
+        "date": "@sys-date"
+      },
+      "conditions": "@sys-date",
+      "event_name": "input",
+      "dialog_node": "handler_5_1629952031788"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_4_1629952339233",
+      "context": {
+        "number": "@sys-number"
+      },
+      "conditions": "@sys-number",
+      "event_name": "input",
+      "dialog_node": "handler_5_1629952339235"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_2_1629952023948",
+      "event_name": "focus",
+      "dialog_node": "handler_6_1629952023973",
+      "previous_sibling": "handler_1_1629952023973"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "متى كان تاريخ الشراء؟"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_5_1629952031778",
+      "event_name": "focus",
+      "dialog_node": "handler_8_1629952031788",
+      "previous_sibling": "handler_5_1629952031788"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_4_1629952038262",
+      "event_name": "focus",
+      "dialog_node": "handler_8_1629952038273",
+      "previous_sibling": "handler_3_1629952038273"
+    },
+    {
+      "type": "frame",
+      "title": "شكاوي العملاء",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "سيتم ارجاع المبلغ في رصيدك."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#شكاوي-العملاء",
+      "dialog_node": "node_10_1629951888646",
+      "previous_sibling": "node_4_1629951867322"
+    },
+    {
+      "type": "standard",
+      "title": "ترحيب",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "ياهلا"
+              },
+              {
+                "text": "أهلا"
+              },
+              {
+                "text": "هلا"
+              },
+              {
+                "text": "تفضل "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#ترحيب",
+      "dialog_node": "node_2_1629947789812",
+      "previous_sibling": "مرحبا"
+    },
+    {
+      "type": "frame",
+      "title": "جودة الخدمة",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "شكرا لثقتكم..ونتطلع لنكون عند حسن ظنكم."
+              },
+              {
+                "text": "أهلا بكم."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#جودةالخدمة",
+      "dialog_node": "node_4_1629951867322",
+      "previous_sibling": "node_2_1629947789812"
+    },
+    {
+      "type": "frame",
+      "title": "سوء الخدمة ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "نأسف لذلك.  "
+              },
+              {
+                "text": "نعتذر عن ذلك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#سوءالخدمة",
+      "dialog_node": "node_7_1629951303623",
+      "previous_sibling": "node_10_1629951888646"
+    },
+    {
+      "type": "slot",
+      "parent": "node_7_1629951303623",
+      "dialog_node": "slot_2_1629952023948"
+    },
+    {
+      "type": "slot",
+      "parent": "node_4_1629951867322",
+      "dialog_node": "slot_4_1629952038262"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_10_1629951888646",
+      "variable": "$number",
+      "dialog_node": "slot_4_1629952339233",
+      "previous_sibling": "slot_5_1629952031778"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_10_1629951888646",
+      "variable": "$date",
+      "dialog_node": "slot_5_1629952031778"
+    },
+    {
+      "type": "standard",
+      "title": "أي شيء آخر",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لم أفهم، يمكنك محاولة اعادة الصياغة"
+              },
+              {
+                "text": "هل يمكنك اعادة صياغة عبارتك؟ أنا لا فهم"
+              },
+              {
+                "text": "لم أفهم قصدك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "أي شيء آخر",
+      "previous_sibling": "node_7_1629951303623",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "مرحبا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "أهلا.."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "مرحبا"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": ":هل قصدت",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "كل ما سبق خطأ"
+    },
+    "human_agent_assist": {
+      "prompt": ":هل قصدت"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "تحدث",
+  "language": "ar",
+  "description": ""
+}
